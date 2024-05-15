@@ -1,0 +1,149 @@
+.admin-tools .content {
+  padding: 20px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.admin-tools .list {
+  font-family:sans-serif;
+  margin:0;
+  padding:20px 0 0;
+}
+
+.admin-tools td {
+  padding:10px; 
+  border:solid 1px #eee;
+}
+
+.admin-tools .list > li {
+  display:block;
+  background-color: #eee;
+  padding:10px;
+  box-shadow: inset 0 1px 0 #fff;
+}
+
+.admin-tools .hero h1 {
+  background-color: white;
+  text-align: center;
+  font-size: 50px;
+  line-height: 200px;
+  margin: 0;
+}
+
+.admin-tools .avatar {
+  max-width: 150px;
+}
+
+.admin-tools img {
+  max-width: 100%;
+}
+
+.admin-tools .log {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.admin-tools .log.error {
+  color: red;
+}
+
+.admin-tools .log.success {
+  color: green;
+}
+
+.admin-tools h3 {
+  font-size: 16px;
+  margin:0 0 0.3rem;
+  font-weight: normal;
+  font-weight:bold;
+}
+
+.admin-tools p {
+  margin:0;
+}
+
+.admin-tools label {
+  font-weight: bold;
+}
+
+.admin-tools input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px;
+}
+
+.admin-tools input#github-url {
+  width: 350px;
+}
+
+.admin-tools .form {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* input:invalid::after { content: ' ⨉'; }
+input:valid::after { content: ' ✓'; } */
+
+.admin-tools input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+
+.admin-tools .sort {
+  padding:8px 30px;
+  border-radius: 6px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: #28a8e0;
+  height:30px;
+}
+
+.admin-tools .sort:hover {
+  text-decoration: none;
+  background-color:#1b8aba;
+}
+
+.admin-tools .sort:focus {
+  outline:none;
+}
+
+.admin-tools .sort::after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+
+.admin-tools .sort.asc::after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  position: relative;
+  top:13px;
+  right:-5px;
+  content: "";
+  padding-left: 3px;
+}
+
+.admin-tools .sort.desc::after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content: "";
+  padding-left: 3px;
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
