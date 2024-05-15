@@ -1,0 +1,12 @@
+{
+  "project": "Admin Tools Test",
+  "host": "https://main--admin-tools--amol-anand.hlx.live/",
+  "plugins": [
+    {
+      "id": "library",
+      "title": "Library",
+      "environments": ["edit"],
+      "url": "/tools/sidekick/library.html"
+    }
+  ]
+}
