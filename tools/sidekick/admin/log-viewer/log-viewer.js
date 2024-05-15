@@ -1,29 +1,31 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 const regexpFull = /^.*github.com\/([a-zA-Z0-9_-]+)\/([a-zA-Z0-9_-]+)\/tree\/([a-zA-Z0-9_-]+)$/;
 const regexpPartial = /^.*github.com\/([a-zA-Z0-9_-]+)\/([a-zA-Z0-9_-]+)$/;
-const options = {
-  valueNames: [
-    'timestamp',
-    'status',
-    'method',
-    'route',
-    'path',
-    'user',
-    'errors',
-    'duration',
-    'contentBusId',
-  ],
-  item: `<tr>
-    <td class="timestamp"></td>
-    <td class="status"></td>
-    <td class="method"></td>
-    <td class="route"></td>
-    <td class="path"></td>
-    <td class="user"></td>
-    <td class="errors"></td>
-    <td class="duration"></td>
-    <td class="contentBusId"></td>
-  </tr>`,
-};
+// const options = {
+//   valueNames: [
+//     'timestamp',
+//     'status',
+//     'method',
+//     'route',
+//     'path',
+//     'user',
+//     'errors',
+//     'duration',
+//     'contentBusId',
+//   ],
+//   item: `<tr>
+//     <td class="timestamp"></td>
+//     <td class="status"></td>
+//     <td class="method"></td>
+//     <td class="route"></td>
+//     <td class="path"></td>
+//     <td class="user"></td>
+//     <td class="errors"></td>
+//     <td class="duration"></td>
+//     <td class="contentBusId"></td>
+//   </tr>`,
+// };
 
 function addErrorMessage(message, el) {
   const errorDiv = document.createElement('div');
@@ -150,7 +152,7 @@ async function processForm(container) {
           <td class="errors">${value.errors || ''}</td>
           <td class="duration">${value.duration || ''}</td>
           <td class="contentBusId">${value.contentBusId || ''}</td>`;
-          tableEl.append(tr);
+        tableEl.append(tr);
       });
     } else {
       // githubUrlEl.classList.add('error');
