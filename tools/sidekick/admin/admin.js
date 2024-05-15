@@ -8,30 +8,27 @@
 export async function decorate(container, data, query, context) {
   const splitContainer = document.createElement('div');
   splitContainer.classList.add('admin-tools');
-  const splitView = `<sp-split-view 
+  splitContainer.innerHTML = `<sp-split-view 
       primary-size="350" 
       dir="ltr" 
       splitter-pos="250"
-      resizable
-    >
+      resizable>
     <div class="menu">
       <div class="list-container">
+        <sp-sidenav></sp-sidenav>
       </div>
     </div>
     <div class="content">
     </div>
   </sp-split-view>
   `;
-  splitContainer.innerHTML = splitView;
   container.append(splitContainer);
-  const sideNavEl = `<sp-sidenav></sp-sidenav>`;
-  splitContainer.querySelector('.list-container').innerHTML = sideNavEl;
   const sideNav = splitContainer.querySelector('sp-sidenav');
   data.forEach((item) => {
     const listItem = document.createElement('sp-sidenav-item');
     listItem.setAttribute('value', item.name);
     listItem.setAttribute('label', item.name);
-    listItem.addEventListener('click', (e) => {
+    listItem.addEventListener('click', () => {
       import(`./${item.module}/${item.module}.js`).then((module) => {
         const content = splitContainer.querySelector('.content');
         module.decorate(content, item.data, query, context);
