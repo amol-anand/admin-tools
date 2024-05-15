@@ -31,7 +31,7 @@ export async function decorate(container, data, query, context) {
     listItem.addEventListener('click', () => {
       import(`./${item.module}/${item.module}.js`).then((module) => {
         const content = splitContainer.querySelector('.content');
-        module.decorate(content, item.data, query, context);
+        module.default(content, item.data, query, context);
       });
     });
     sideNav.append(listItem);
