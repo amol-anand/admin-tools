@@ -76,6 +76,7 @@ async function checkJobStatus(url, container) {
 
     // Clear container and append table
     container.innerHTML = '';
+    container.classList.remove('spin');
     container.classList.add('results-done');
     container.appendChild(table);
   }
@@ -87,6 +88,7 @@ export default async function decorate(container, data, query, context) {
   ref = context.ref;
   if (!statusCheckInterval) {
     container.classList.remove('results-done');
+    container.classList.add('spin');
     const status = await postData(`https://admin.hlx.page/status/${owner}/${repo}/${ref}/*`, paths);
     const progress = document.createElement('sp-progress-circle');
     progress.classList.add('pcircle');

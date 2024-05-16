@@ -24,7 +24,7 @@ table.admin-results {
     padding-top: 25px;
 }
 
-div.content {
+div.content.spin {
     display: flex;
     justify-content: center;
     align-items: center;
