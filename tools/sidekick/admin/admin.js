@@ -1,19 +1,3 @@
-async function loadModuleCSS(module) {
-  return new Promise((resolve, reject) => {
-    const file = `/tools/sidekick/admin/${module}/${module}.css`;
-    if (!document.querySelector(`head > link[href="${file}"]`)) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = file;
-      link.onload = resolve;
-      link.onerror = reject;
-      document.head.append(link);
-    } else {
-      resolve();
-    }
-  });
-}
-
 function renderList(splitContainer, data, query, context) {
   const sideNav = splitContainer.querySelector('sp-sidenav');
   const content = splitContainer.querySelector('.content');
