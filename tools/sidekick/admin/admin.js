@@ -51,21 +51,7 @@ export async function decorate(container, data, query, context) {
     </div>
   </sp-split-view>`;
   container.append(splitContainer);
-  let sidekick = document.querySelector('helix-sidekick');
-  if (sidekick) {
-    sidekick.addEventListener('statusfetched', (e) => {
-      context.status = e.detail.data;
-      renderList(splitContainer, data, query, context);
-    });
-  } else {
-    document.addEventListener('sidekick-ready', () => {
-      sidekick = document.querySelector('helix-sidekick');
-      sidekick.addEventListener('statusfetched', (e) => {
-        context.status = e.detail.data;
-        renderList(splitContainer, data, query, context);
-      });
-    });
-  }
+  renderList(splitContainer, data, query, context);
 }
 
 export default {
