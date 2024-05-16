@@ -196,7 +196,7 @@ export default async function decorate(container, data, query, context) {
   container.innerHTML = divSoup;
   includeCSS('/tools/sidekick/admin/log-viewer/vanilla-calendar.min.css');
   includeCSS('/tools/sidekick/admin/log-viewer/light.min.css');
-  includeCSS('/tools/sidekick/admin/log-viewer/log-viewer.css');
+  // includeCSS('/tools/sidekick/admin/log-viewer/log-viewer.css');
   const vanillaJS = includeJS('/tools/sidekick/admin/log-viewer/vanilla-calendar.min.js');
   vanillaJS.onload = () => {
     init(container);
