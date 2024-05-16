@@ -44,21 +44,24 @@ async function processForm(container) {
 
   // Get the form values
   let fromDT = container.querySelector('#from-date-time').value;
+  if (fromDT !== '') fromDT = new Date(fromDT).toUTCString();
   let toDT = container.querySelector('#to-date-time').value;
+  if (toDT !== '') toDT = new Date(toDT).toUTCString();
   // If from / to datetime is empty, default to last 24 hours
   if (fromDT === '') {
     // If empty or not selected, default to yesterday
     const dateObj = new Date();
     dateObj.setDate(dateObj.getDate() - 1);
-    fromDT = dateObj.toISOString();
+    fromDT = dateObj.toUTCString();
   }
   // If empty or not selected, default to now
-  if (toDT === '') toDT = (new Date()).toISOString();
+  if (toDT === '') toDT = (new Date()).toUTCString();
   // Get logs
   const values = await getLogs(container, fromDT, toDT);
   if (values && values.length > 0) {
+    const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     // githubUrlEl.classList.add('success');
-    // update timestamps to be readableand create links for paths
+    // update timestamps to be readable and create links for paths
     values.forEach((value) => {
       const dateObj = new Date(value.timestamp);
       value.timestamp = dateObj.toLocaleString();
@@ -102,7 +105,7 @@ async function processForm(container) {
     valuesReversed.forEach((value) => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
-          <td class="timestamp">${value.timestamp || ''}</td>
+          <td class="timestamp">${value.timestamp || ''} ${currentTimeZone}</td>
           <td class="status">${value.status || ''}</td>
           <td class="method">${value.method || ''}</td>
           <td class="route">${value.route || ''}</td>
