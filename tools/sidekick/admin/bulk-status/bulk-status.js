@@ -33,7 +33,7 @@ async function getData(url) {
 
 function isValidDate(dateString) {
   const date = new Date(dateString);
-  return !isNaN(date.getTime());
+  return !Number.isNaN(date.getTime());
 }
 
 function customStringify(value) {
@@ -54,7 +54,7 @@ async function checkJobStatus(url, container) {
   if (status.state === 'completed' || status.state === 'stopped') {
     const details = await getData(`${status.links.self}/details`);
     clearInterval(statusCheckInterval); // Clear the interval to stop checking
-    const resources = details.data.resources;
+    const { resources } = details.data;
     const table = document.createElement('table');
     table.classList.add('admin-results');
     table.innerHTML = `<tr>
@@ -80,7 +80,7 @@ async function checkJobStatus(url, container) {
   }
 }
 
-export async function decorate(container, data, query, context) {
+export default async function decorate(container, data, query, context) {
   const status = await postData(`https://admin.hlx.page/status/${owner}/${repo}/${ref}/*`, paths);
   const progress = document.createElement('sp-progress-circle');
   progress.classList.add('pcircle');
@@ -88,7 +88,7 @@ export async function decorate(container, data, query, context) {
   progress.setAttribute('size', 'l');
   container.append(progress);
   if (status.job.state !== 'created') {
-    console.log(await getData(`${status.links.self}/details`));
+    // console.log(await getData(`${status.links.self}/details`));
   } else {
     // Set an interval to check the job status every 2 seconds
     statusCheckInterval = setInterval(() => checkJobStatus(status.links.self, container), 2000);
