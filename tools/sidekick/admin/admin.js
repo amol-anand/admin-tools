@@ -1,6 +1,6 @@
 async function loadModuleCSS(module) {
   return new Promise((resolve, reject) => {
-    const file = `./${module}/${module}.css`;
+    const file = `/tools/sidekick/admin/${module}/${module}.css`;
     if (!document.querySelector(`head > link[href="${file}"]`)) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -17,6 +17,7 @@ async function loadModuleCSS(module) {
 function renderList(splitContainer, data, query, context) {
   const sideNav = splitContainer.querySelector('sp-sidenav');
   const content = splitContainer.querySelector('.content');
+  sideNav.replaceChildren();
   data.forEach((item) => {
     const listItem = document.createElement('sp-sidenav-item');
     listItem.setAttribute('value', item.name);
