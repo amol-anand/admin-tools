@@ -23,6 +23,7 @@ function renderList(splitContainer, data, query, context) {
     listItem.setAttribute('value', item.name);
     listItem.setAttribute('label', item.name);
     listItem.addEventListener('click', async () => {
+      content.replaceChildren();
       await loadModuleCSS(item.module);
       const module = await import(`./${item.module}/${item.module}.js`);
       module.default(content, item.data, query, context);
