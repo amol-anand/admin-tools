@@ -52,19 +52,14 @@ export async function decorate(container, data, query, context) {
   container.append(splitContainer);
   let sidekick = document.querySelector('helix-sidekick');
   if (sidekick) {
-    console.log('Sidekick exists');
     sidekick.addEventListener('statusfetched', (e) => {
-      console.log('Sidekick Status fetched');
       context.status = e.detail.data;
       renderList(splitContainer, data, query, context);
     });
   } else {
-    console.log('Sidekick does not exist');
     document.addEventListener('sidekick-ready', () => {
-      console.log('Sidekick is ready exist');
       sidekick = document.querySelector('helix-sidekick');
       sidekick.addEventListener('statusfetched', (e) => {
-        console.log('Sidekick Status fetched');
         context.status = e.detail.data;
         renderList(splitContainer, data, query, context);
       });
