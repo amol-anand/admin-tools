@@ -1,3 +1,6 @@
+@import url('/tools/sidekick/admin/bulk-status/bulk-status.css');
+@import url('/tools/sidekick/admin/log-viewer/log-viewer.css');
+
 .admin-tools, sp-split-view {
   height: 100%;
 }
@@ -6,3 +9,4 @@
   padding: 25px;
   height: 100%;
 }
+
